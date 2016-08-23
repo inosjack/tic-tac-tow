@@ -1,0 +1,196 @@
+{{--var currantPlayer = "";--}}
+{{--var dataX = [];--}}
+{{--var dataO = [];--}}
+{{--var currantPlayer = "";--}}
+{{--var combinationAX = [];--}}
+{{--var combinationAO = [];--}}
+
+{{--var combinationBX = [];--}}
+{{--var combinationBO = [];--}}
+
+{{--var combinationCX = [];--}}
+{{--var combinationCO = [];--}}
+
+{{--var combinationDX = [];--}}
+{{--var combinationDO = [];--}}
+
+{{--var combinationEX = [];--}}
+{{--var combinationEO = [];--}}
+
+{{--var combinationFX = [];--}}
+{{--var combinationFO = [];--}}
+
+{{--var combinationGX = [];--}}
+{{--var combinationGO = [];--}}
+
+{{--var combinationHX = [];--}}
+{{--var combinationHO = [];--}}
+
+{{--var combinationIX = [];--}}
+{{--var combinationIO = [];--}}
+
+{{--var count = 0;--}}
+{{--function chngbg(val)--}}
+{{--{--}}
+{{--$("#a").removeClass();--}}
+{{--$("#b").removeClass();--}}
+{{--$("#c").removeClass();--}}
+{{--$("#d").removeClass();--}}
+{{--$("#e").removeClass();--}}
+{{--$("#f").removeClass();--}}
+{{--$("#g").removeClass();--}}
+{{--$("#h").removeClass();--}}
+{{--$("#i").removeClass();--}}
+
+{{--switch (val)--}}
+{{--{--}}
+{{--case 1:--}}
+{{--$("#a").addClass('tdbg');--}}
+{{--break;--}}
+{{--case 2:--}}
+{{--$("#b").addClass('tdbg');--}}
+{{--break;--}}
+{{--case 3:--}}
+{{--$("#c").addClass('tdbg');--}}
+{{--break;--}}
+{{--case 4:--}}
+{{--$("#d").addClass('tdbg');--}}
+{{--break;--}}
+{{--case 5:--}}
+{{--$("#e").addClass('tdbg');--}}
+{{--break;--}}
+{{--case  6:--}}
+{{--$("#f").addClass('tdbg');--}}
+{{--break;--}}
+{{--case  7:--}}
+{{--$("#g").addClass('tdbg');--}}
+{{--break;--}}
+{{--case  8:--}}
+{{--$("#h").addClass('tdbg');--}}
+{{--break;--}}
+{{--case  9:--}}
+{{--$("#i").addClass('tdbg');--}}
+{{--break;--}}
+{{--}--}}
+{{--}--}}
+
+
+
+{{--function play(tbid , val) {--}}
+{{--if ($('#'+tbid+val).is(':empty')) {--}}
+
+{{--count++;--}}
+{{--if ($("#O").hasClass("current-player"))--}}
+{{--{--}}
+{{--chngbg(val);--}}
+{{--$("#"+tbid+val).append("<div class='O-marker'></div>");--}}
+{{--currantPlayer = "Player O";--}}
+{{--switch(tbid)--}}
+{{--{--}}
+{{--case a:--}}
+{{--combinationAO.push(val);--}}
+{{--dataO = combinationAO;--}}
+{{--break;--}}
+{{--case b:--}}
+{{--combinationBO.push(val);--}}
+{{--dataO = combinationBO;--}}
+{{--break;--}}
+{{--case c:--}}
+{{--combinationCO.push(val);--}}
+{{--dataO = combinationCO;--}}
+{{--break;--}}
+{{--case d:--}}
+{{--combinationDO.push(val);--}}
+{{--dataO = combinationDO;--}}
+{{--break;--}}
+{{--case e:--}}
+{{--combinationEO.push(val);--}}
+{{--dataO = combinationEO;--}}
+{{--break;--}}
+{{--case f:--}}
+{{--combinationFO.push(val);--}}
+{{--dataO = combinationFO;--}}
+{{--break;--}}
+{{--case g:--}}
+{{--combinationGO.push(val);--}}
+{{--dataO = combinationGO;--}}
+{{--break;--}}
+{{--case h:--}}
+{{--combinationHO.push(val);--}}
+{{--dataO = combinationHO;--}}
+{{--break;--}}
+{{--}--}}
+
+{{--$("#O").removeClass();--}}
+{{--$("#X").addClass("current-player");--}}
+
+{{--}--}}
+{{--else--}}
+{{--{--}}
+{{--chngbg(val);--}}
+{{--currantPlayer = "Player X";--}}
+{{--switch(tbid)--}}
+{{--{--}}
+{{--case a:--}}
+{{--combinationAX.push(val);--}}
+{{--dataX = combinationAX;--}}
+{{--break;--}}
+{{--case b:--}}
+{{--combinationBX.push(val);--}}
+{{--dataX = combinationBX;--}}
+{{--break;--}}
+{{--case c:--}}
+{{--combinationCX.push(val);--}}
+{{--dataX = combinationCX;--}}
+{{--break;--}}
+{{--case d:--}}
+{{--combinationDX.push(val);--}}
+{{--dataX = combinationDX;--}}
+{{--break;--}}
+{{--case e:--}}
+{{--combinationEX.push(val);--}}
+{{--dataX = combinationEX;--}}
+{{--break;--}}
+{{--case f:--}}
+{{--combinationFX.push(val);--}}
+{{--dataX = combinationFX;--}}
+{{--break;--}}
+{{--case g:--}}
+{{--combinationGX.push(val);--}}
+{{--dataX = combinationGX;--}}
+{{--break;--}}
+{{--case h:--}}
+{{--combinationHX.push(val);--}}
+{{--dataX = combinationHX;--}}
+{{--break;--}}
+{{--}--}}
+
+{{--$("#"+tbid+val).append("<div class='X-marker'></div>");--}}
+{{--$("#X").removeClass();--}}
+{{--$("#O").addClass("current-player");--}}
+{{--}--}}
+
+{{--if(count >= 5)--}}
+{{--{--}}
+{{--$.ajax({--}}
+{{--type:'post',--}}
+{{--url:'{{ URL::route('play.game') }}',--}}
+{{--data:{ 'combinationX':dataX , 'combinationO' : dataO[], 'count': count,'game' : 'ultimate'},--}}
+{{--beforeSend: function(){--}}
+{{--},--}}
+{{--success: function(response)--}}
+{{--{--}}
+{{--if(response.winner)--}}
+{{--{--}}
+{{--$.confirm({--}}
+{{--title: 'Result...........!',--}}
+{{--content: response.result,--}}
+{{--confirm: function(){--}}
+{{--}--}}
+{{--});--}}
+{{--}--}}
+{{--}--}}
+{{--});--}}
+{{--}--}}
+{{--}--}}
+{{--}--}}
